@@ -7,19 +7,19 @@ describe('HomeHospital Website Test Suite', () => {
   // ================================
   // ✅ Positive Test Cases
   // ================================
-  it.skip('1.To Check Patient Should visit the homepage', () => {
+  it('1.To Check Patient Should visit the homepage', () => {
     cy.visit(baseUrl);
     cy.contains('Consult a Doctor Anytime, Anywhere by Video Call'); // To check istext is visible or not on the screen
     cy.title().should('include', 'HomeHosp');//page title should be Homehosp so user can check page is opened
   });
 
-  it.skip('2.To Check Patient Should navigate to the Sign in ', () => {
+  it('2.To Check Patient Should navigate to the Sign in ', () => {
     cy.visit(baseUrl);
     cy.contains('Get Started');// if started then asssertion passed ow failed
     cy.contains('Login').click();
   });
 
-  it.skip('3.should sign in successfully with valid credentials', () => {
+  it('3.should sign in successfully with valid credentials', () => {
     cy.visit('https://dev.homehosp.com/signin');
     cy.fixture('User').then((data) => {
       cy.wait(2000)
@@ -35,7 +35,7 @@ describe('HomeHospital Website Test Suite', () => {
     cy.url().should('include', 'https://dev.homehosp.com/patient/home')
   })
 
-  it.skip('4.should mask password input field', () => {
+  it('4.should mask password input field', () => {
     cy.visit('https://dev.homehosp.com/signin');
 
     cy.get('#mat-input-1').should('have.attr', 'type', 'password')
@@ -47,7 +47,7 @@ describe('HomeHospital Website Test Suite', () => {
   // ❌ Negative Test Cases
   // ================================
 
-  it.skip('5.To check should show error for invalid username and password', () => {
+  it('5.To check should show error for invalid username and password', () => {
     cy.visit('https://dev.homehosp.com/signin');
     cy.get('#mat-input-0').type('nitin')
     cy.get('#mat-input-1').type('Kotwal')
@@ -56,7 +56,7 @@ describe('HomeHospital Website Test Suite', () => {
     cy.contains('Oops! The email address seems to be incorrect.').should('be.visible')
   })
 
-  it.skip('6.To check should show error for valid username and invalid password', () => {
+  it('6.To check should show error for valid username and invalid password', () => {
     cy.visit('https://dev.homehosp.com/signin');
     cy.get('#mat-input-0').type('nitin@arkenea.com')
     cy.get('#mat-input-1').type('Kotwal')
@@ -65,7 +65,7 @@ describe('HomeHospital Website Test Suite', () => {
     cy.contains('Hmm...it looks like either the email Address or password is incorrect. Please try again!').should('be.visible')
   })
 
-  it.skip('7.To check should show error for non registered email', () => {
+  it('7.To check should show error for non registered email', () => {
     cy.visit('https://dev.homehosp.com/signin');
     cy.get('#mat-input-0').type('nitinkotwal@arkenea.com')
     cy.get('#mat-input-1').type('Kotwal')
@@ -74,7 +74,7 @@ describe('HomeHospital Website Test Suite', () => {
     cy.contains('Looks like your account does not exist. Sign up to create an account.').should('be.visible')
   })
 
-  it.skip('8.should show validation error for empty username', () => {
+  it('8.should show validation error for empty username', () => {
     cy.visit('https://dev.homehosp.com/signin');
     cy.get('#mat-input-1').type('somePassword')
     cy.get('button[disabled="true"]').should('be.disabled')
@@ -82,13 +82,13 @@ describe('HomeHospital Website Test Suite', () => {
 
   })
 
-  it.skip('9.should show validation error for empty password', () => {
+  it('9.should show validation error for empty password', () => {
     cy.visit('https://dev.homehosp.com/signin');
     cy.get('#mat-input-0').type('someUser')
     cy.get('button[disabled="true"]').should('be.disabled')
   })
 
-  it.skip('10.should show validation errors for both fields empty', () => {
+  it('10.should show validation errors for both fields empty', () => {
     cy.visit('https://dev.homehosp.com/signin');
 
     cy.get('#mat-input-0').should('exist')
@@ -96,13 +96,13 @@ describe('HomeHospital Website Test Suite', () => {
     cy.get('button[disabled="true"]').should('be.disabled')
   })
 
-  it.skip('11.should disable login button if fields are empty', () => {
+  it('11.should disable login button if fields are empty', () => {
     cy.visit('https://dev.homehosp.com/signin');
 
     cy.get('button[disabled="true"]').should('be.disabled')
   })
 
-  it.skip('12.Should be uncheck the Remember this computer checkbox at first visit', () => {
+  it('12.Should be uncheck the Remember this computer checkbox at first visit', () => {
 
     cy.visit('https://dev.homehosp.com/signin');
 
@@ -111,7 +111,7 @@ describe('HomeHospital Website Test Suite', () => {
 
   });
 
-  it.skip('13.Should be able to check the Remember this computer checkbox ', () => {
+  it('13.Should be able to check the Remember this computer checkbox ', () => {
 
     cy.visit('https://dev.homehosp.com/signin');
 
@@ -145,7 +145,7 @@ describe('HomeHospital Website Test Suite', () => {
 
 
 
-  });
+  })
 
 
 

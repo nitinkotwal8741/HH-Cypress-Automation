@@ -1,5 +1,5 @@
 // Base URL
-describe('HomeHospital Website Test Suite', () => {
+describe('HomeHospital Website Provider Login Test Suite', () => {
 
   // Base URL
   const baseUrl = 'https://dev.homehosp.com/'; // here we have to set the project URL
@@ -137,8 +137,8 @@ describe('HomeHospital Website Test Suite', () => {
       cy.contains('Log out').click();
       cy.reload()
       cy.wait(5000)
-      cy.get('#mat-input-0').should('have.value', 'nitin+564@arkenea.com')
-      cy.get('#mat-input-1').should('have.value', 'Qwerty@123')
+      cy.get('#mat-input-0').should('have.value', 'nitin+1001@arkenea.com')
+      cy.get('#mat-input-1').should('have.value', 'Arkenea@123')
 
     })
 
