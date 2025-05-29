@@ -60,7 +60,7 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
         cy.contains('.mat-calendar-body-cell', '1').click();
 
 
-        cy.cy.get('.sub--scroll > :nth-child(1)')
+        cy.get('.sub--scroll > :nth-child(1)')
             .invoke('val')
             .then((value) => {
                 if (value) {

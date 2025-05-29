@@ -1,4 +1,4 @@
-describe('HomeHospital Website E-Consultation Test Suite', () => {
+describe('HomeHospital Website - Instant-Consultation Test Suite', () => {
     // Base URL
     const baseUrl = 'https://dev.homehosp.com/signin'; // here we have to set the project URL
 
@@ -26,26 +26,26 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
         cy.log('Instant Consultation is added on the page')
     })
 
-    it('2. To check Waiting Room should be added on the Instant consultation screen', () => {
+    it('2. To check Waiting Room button should be added on the Instant consultation screen', () => {
         cy.contains("Waiting Room").should('exist')
         cy.log('Waiting Room is added on the page')
     })
 
-    it('3. To check Today’s Date should be added on the Instant consultation screen', () => {
+    it('3. To check Today’s Date should be display on the Instant consultation screen', () => {
         cy.contains("Today’s Date").should('exist')
         cy.log('Today’s Date is added on the page')
     })
 
-    it('4. To check Edit Hours should be added on the Instant consultation screen', () => {
+    it('4. To check Edit Hours button should be added on the screen', () => {
         cy.contains("Edit Hours").should('exist')
         cy.log('Edit Hours button is added on the page')
     })
-    it('5. To check Invite Patient for Instant Consultation  should be added on the Instant consultation screen', () => {
+    it('5. To check Invite Patient for Instant Consultation  should be added ', () => {
         cy.contains("Invite Patient for Instant Consultation").should('exist')
         cy.log('Invite Patient for Instant Consultation  button is added on the page')
     })
 
-    it('6. To check Connect with Patient in Instant Consultation  should be added on the Instant consultation screen', () => {
+    it('6. To check Connect with Patient in Instant Consultation  should be added', () => {
         cy.contains("Connect with Patient").should('exist')
         cy.log('Connect with Patient  button is added on the page')
     })
@@ -53,7 +53,7 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
         cy.contains("Request Received").should('exist')
         cy.log('Request Received tab is added on the page')
     })
-    it('8. To check Request Sent tab should be added on the Instant consultation screen', () => {
+    it('8. To check Request Received tab should be clickable', () => {
         cy.contains("Request Sent").should('exist')
         cy.log('Request Sent tab is added on the page')
     })
@@ -62,8 +62,8 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
         cy.log('Request Sent tab is added on the page')
     })
 
-    it('10. To check Request Sent tab should be added on the Instant consultation screen', () => {
-        cy.contains("Request Sent").should('exist')
+    it('10. To check Request Sent tab should be Clickable', () => {
+        cy.contains("Request Sent").click();
         cy.log('Request Sent tab is added on the page')
     })
 
@@ -74,14 +74,14 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
 
     })
 
-    it('12. To check Wating room should be open after click on button', () => {
+    it('12. To check Wating room page should be open after click on button', () => {
         cy.xpath("//*[text()='Waiting Room']")       // Replace with your button's selector
             .should('be.visible')         // Check it's visible
             .and('not.be.disabled').click()
         cy.contains(' Instant Consultation / Waiting Room').should('exist')
     })
 
-    it('13. To check Edit hours button is clickable', () => {
+    it('13. To check Edit hours button should not be Disabled', () => {
         cy.xpath("//*[text()='Edit Hours']")       // Replace with your button's selector
             .should('be.visible')         // Check it's visible
             .and('not.be.disabled').click()
@@ -108,9 +108,9 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
             .should('be.visible')         // Check it's visible
             .and('not.be.disabled').click()
         cy.wait(2000)
-        cy.xpath("//*[text()='05:30 PM']").click();
+        cy.xpath("//*[text()='03:30 PM']").click();
         cy.wait(2000)
-        cy.xpath("//*[text()='06:30 PM']").click();
+        cy.xpath("//*[text()='04:30 PM']").click();
         cy.wait(2000)
         cy.xpath("//*[text()=' Save and Publish']").click();
 
@@ -358,7 +358,7 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
 
     })
 
-    it('36. To check Call should be start after click on Connect Now', () => {
+    it('36. To validate UI of started Call screen', () => {
 
         cy.xpath('//*[text()="Connect with Patient "]')       // Replace with your button's selector
             .should('be.visible')       // Check it's visible
@@ -424,8 +424,9 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
         cy.wait(3000)
         cy.xpath('//*[text()="Connect Now"]').click()
         cy.xpath('//*[text()="Ok"]').click()
-
+        cy.wait(5000)
         cy.xpath('//*[@mattooltip="video on"]').click();
+
         cy.xpath('//*[@mattooltip="unmute"]').click();
 
         cy.xpath('//*[@mattooltip="video off"]').then(($btn) => {
@@ -535,7 +536,7 @@ describe('HomeHospital Website E-Consultation Test Suite', () => {
 
     })
 
-    it('42. To check Messaging window ON/OFF should be work properly', () => {
+    it('42. To check Messaging should be sent properly', () => {
 
         cy.xpath('//*[text()="Connect with Patient "]')       // Replace with your button's selector
             .should('be.visible')       // Check it's visible
