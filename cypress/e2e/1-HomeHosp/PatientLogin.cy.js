@@ -1,6 +1,8 @@
 // Base URL
 describe('HomeHospital Website Test Suite', () => {
 
+  
+
   // Base URL
   const baseUrl = 'https://dev.homehosp.com/'; // here we have to set the project URL
 

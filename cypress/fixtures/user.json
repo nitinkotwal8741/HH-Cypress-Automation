@@ -3,5 +3,9 @@
   "Patient_Password": "Qwerty@123",
   "Provider_UserName": "nitin+1001@arkenea.com",
   "Provider_Password": "Arkenea@123",
-  "SearchText": "rachel"
+  "SearchText": "rachel",
+    "Appointment_date":"June 5, 2025",
+    "Appointment_Time" :"06:30 AM",
+    "GlucoseFile": "Glucose_Test.jpg",
+    "BloodReport": "Blood_Reprot.jpg"
 }

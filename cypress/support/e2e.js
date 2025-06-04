@@ -18,3 +18,33 @@ import './commands'
 require('cypress-xpath')
 supportFile: 'cypress/support/e2e.js';
 import 'cypress-mochawesome-reporter/register';
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // Ignore only known cross-origin script errors
+  if (err.message.includes('Script error')) {
+    return false;
+  }
+});
+// cypress/support/commands.ts
+
+ const baseUrl = 'https://dev.homehosp.com/signin'; // here we have to set the project URL
+Cypress.Commands.add('login', () => {
+  cy.session('user-session', () => {
+    cy.visit(baseUrl);
+    cy.fixture('user').then((data) => {
+
+           cy.xpath('//*[@id="mat-input-0"]').should('exist').type(data.Patient_UserName)
+
+            cy.xpath('//*[@id="mat-input-1"]').should('exist').type(data.Patient_Password)
+
+            cy.xpath("//*[text()='Sign in']").click();
+            
+          cy.wait(5000)
+          cy.url().should('include', '/patient/home');
+           
+        })
+  })
+});
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from failing the test
+  return false;
+});

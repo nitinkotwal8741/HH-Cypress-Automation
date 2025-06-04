@@ -6,14 +6,15 @@ module.exports = defineConfig({
     reportDir: "cypress/reports",
     overwrite: false,
     html: true,
-    json: true
+    json: true,
   },
   e2e: {
+    baseUrl: "https://dev.homehosp.com", // Use just the root domain
+    experimentalSessionAndOrigin: true, // Moved here
+    specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+      require("cypress-mochawesome-reporter/plugin")(on);
       return config;
     },
-    baseUrl: "https://dev.homehosp.com/signin", // this is OK if you're directly visiting /signin
-    specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}"
-  }
+  },
 });
